@@ -1,0 +1,16 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: prism
+spec:
+  template:
+    spec:
+      containers:
+        - image: gcr.io/PROJECT_ID/prism:latest
+          ports:
+            - containerPort: 8080
+          resources:
+            limits:
+              cpu: "1"
+              memory: "512Mi"
+          env:
